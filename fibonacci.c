@@ -36,6 +36,8 @@ void fibonacci(int N) {
 }
 
 int main() {
-    fibonacci(20000);
+    int N;
+    scanf("%d",&N);
+    fibonacci(N);
     return 0;
 }
