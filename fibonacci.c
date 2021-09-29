@@ -4,6 +4,10 @@
 void fibonacci(int N) {
     char a[5000]="0",b[5000]="1",result[5000];
     int l1,l2,diff,i,j,k,carry = 0,sum;
+    if(N <= 1) {
+        printf("%d",N);
+        return;
+    }
     for(j = 2; j <= N; ++j) {
         l1 = strlen(a);
         l2 = strlen(b);
