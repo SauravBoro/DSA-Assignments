@@ -12,11 +12,8 @@ void swap(ll *x, ll *y)
 }
 
 void selection_sort(ll a[], ll n){
-
     for(ll i = 0; i < n - 1; i++){
-
         for(ll j = i + 1; j < n; j++){
-
             if(a[j]<a[i]){
                 swap(&a[j],&a[i]);
             }
@@ -68,5 +65,7 @@ int main(){
     time_bubble_sort = end_bubble_sort - start_bubble_sort;
 
     printf("Time taken by bubble sort: %f\n", (double) time_bubble_sort/ (double) CLOCKS_PER_SEC);
+    
+    return 0;
 
 }
