@@ -6,7 +6,7 @@ int main(){
     printf("Enter your email: ");
     scanf("%s",email);
 
-    int temp = 0, atCounter = 0, indexOfAt = -1, indexOfDot = -1;
+    int temp = 0, C = 0, atTheRate = -1, dot = -1;
 
     for(int i=0;email[i]!='\0';i++){
         if((email[i] >= 'A' && email[i] <= 'Z')
@@ -21,15 +21,15 @@ int main(){
             break;
         }
         if(email[i]=='@'){
-            atCounter++;
-            indexOfAt = i;
+            C++;
+            atTheRate = i;
         }
         if(email[i]=='.'){
-            indexOfDot = i;
+            dot = i;
         }
     }
 
-    if(temp && (indexOfDot - indexOfAt) > 3 && atCounter == 1){
+    if(temp && (dot - atTheRate) > 3 && C == 1){
         printf("The email is valid\n");
     }
     else{
