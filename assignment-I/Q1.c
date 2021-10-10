@@ -2,35 +2,35 @@
 #include<string.h>
 
 int main(){
-  
-  char number[20];
+
+  char NUM[20];
   int flag = 0;
   int floatingPoint = 0;
 
-  printf("Enter a number: ");
-  scanf("%s",number);
+  printf("Enter a NUM: ");
+  scanf("%s", NUM);
 
-  int i=0;
+  
 
-  while(number[i++] != '\0'){
-    if(!flag && number[i] == '.'){
+  for(int i=0;NUM[i] != '\0';i++){
+    if(!flag && NUM[i] == '.'){
       flag = 1;
     }
-    else if(flag && (number[i]<'0' && number[i]>'9')){
+    else if(flag && (NUM[i] < '0' && NUM[i] > '9')){
       floatingPoint = 0;
     }
-    else if(flag && (number[i]>='0' && number[i]<='9')){
+    else if(flag && (NUM[i] >= '0' && NUM[i] <= '9')){
       floatingPoint = 1;
     }
   }
 
   if(floatingPoint){
-    printf("Then number %s is a valid floating point.\n",number);
+    printf("Then NUM %s is a valid floating point.\n", NUM);
   }
   else{
-    printf("The number %s is not a valid floating point.\n",number);
+    printf("The NUM %s is not a valid floating point.\n", NUM);
   }
-  
+
   return 0;
 
 }
