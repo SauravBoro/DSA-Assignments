@@ -1,88 +1,71 @@
 #include<stdio.h>
-#include<stdlib.h>
 #include<time.h>
 
-typedef long long int lli;
+typedef long long ll;
 
-void selection_sort(lli a[], lli n){
-
-  for(lli i = 0; i < n - 1; i++){
-
-    for(lli j = i + 1; j < n; j++){
-
-      if(a[j]<a[i]){
-
-        lli temp = a[j];
-        a[j] = a[i];
-        a[i] = temp;
-      }
-    }
-  }
-  // printf("Sorting using Selection Sort: \n");
-
-  // for(int i=0;i<n;i++) printf("%lld, ",a[i]);
-
-  // printf("\n");
+void swap(ll *x, ll *y)
+{
+    ll temp = *x;
+    *x = *y;
+    *y = temp;
 }
 
-void bubble_sort(lli a[], lli n){
+void selection_sort(ll a[], ll n){
 
-  lli counter = 1;
-  while(counter < n){
-    
-    for(lli i = 0; i < n - counter; i++){
+    for(ll i = 0; i < n - 1; i++){
 
-      if(a[i] > a[i+1]){
+        for(ll j = i + 1; j < n; j++){
 
-        lli temp = a[i];
-        a[i] = a[i+1];
-        a[i+1] = temp;
-      }
+            if(a[j]<a[i]){
+                swap(&a[j],&a[i]);
+            }
+        }
     }
-    counter++;
-  }
+}
 
-  // printf("Sorting using Bubble Sort: \n");
-
-  // for(int i = 0; i < n; i++) printf("%lld, ",a[i]);
-
-  // printf("\n");
+void bubble_sort(ll a[], ll n){
+    int i,j;
+    for(i = 0; i < n - 1; i++) {
+        for(j = 0; j < n - i - 1; j++){
+            if(a[j] > a[j+1]){
+                swap(&a[j],&a[j+1]);
+            }
+        }
+    }
 }
 
 int main(){
-  printf("Enter the no. of elements of array: ");
-  lli n;
-  scanf("%lld",&n);
-  
-  lli a[n];
-  // For random input
-  // for(lli i = 0; i < n; i++) a[i] = 1 + (rand()%100);
+    printf("Enter the number of elements of array: ");
+    ll n;
+    scanf("%lld",&n);
 
-  // For sorted input
-  for(lli i = 0; i < n; i++) a[i] = i+1;
+    ll a[n];
+    // for(ll i = 0; i < n; i++) a[i] = 1 + (rand()%100);
+    
+    for(ll i = 0; i < n; i++) a[i] = i + 1;
 
-  clock_t start_selection_sort, end_selection_sort, start_bubble_sort, end_bubble_sort;
+    clock_t start_selection_sort, end_selection_sort, start_bubble_sort, end_bubble_sort;
 
-  lli time_selection_sort, time_bubble_sort;
+    ll time_selection_sort, time_bubble_sort;
 
-  start_selection_sort = clock();
-  
-  selection_sort(a, n);
+    start_selection_sort = clock();
 
-  end_selection_sort = clock();
+    selection_sort(a, n);
 
-  time_selection_sort = end_selection_sort - start_selection_sort;
+    end_selection_sort = clock();
 
-  printf("The time taken for selection sort: %f\n", (double) time_selection_sort/ (double) CLOCKS_PER_SEC);
+    time_selection_sort = end_selection_sort - start_selection_sort;
 
-  start_bubble_sort = clock();
+    printf("Time taken by selection sort: %f\n", (double) time_selection_sort/ (double) CLOCKS_PER_SEC);
 
-  bubble_sort(a, n);
+    start_bubble_sort = clock();
 
-  end_bubble_sort = clock();
+    bubble_sort(a, n);
 
-  time_bubble_sort = end_bubble_sort - start_bubble_sort;
+    end_bubble_sort = clock();
 
-  printf("The time taken for bubble sort: %f\n", (double) time_bubble_sort/ (double) CLOCKS_PER_SEC);
+    time_bubble_sort = end_bubble_sort - start_bubble_sort;
+
+    printf("Time taken by bubble sort: %f\n", (double) time_bubble_sort/ (double) CLOCKS_PER_SEC);
 
 }
