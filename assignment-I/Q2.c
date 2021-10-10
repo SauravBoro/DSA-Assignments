@@ -33,7 +33,7 @@ int main(){
         printf("The email is valid\n");
     }
     else{
-        printf("The email is not valid\n");
+        printf("The email is invalid\n");
     }
     return 0;
 
