@@ -24,13 +24,11 @@ long long toDecimal(char roman[]){
     long long number = 0;
     while (roman[i]){
         if(romanNumbers(roman[i]) < 0){
-            printf("Invalid");
             return -1;
         }
 
         if((strlen(roman)-i)>2){
             if(romanNumbers(roman[i]) < romanNumbers(roman[i + 2])){
-                printf("Invalid");
                 return -1;
             }
         }
@@ -131,10 +129,15 @@ int main(){
         scanf("%s %s", roman1, roman2);
         long long decimal1 = toDecimal(roman1);
         long long decimal2 = toDecimal(roman2);
-        long long sum = decimal1 + decimal2;
-        printf("The sum is: ");
-        toRoman(sum);
-        printf("\n");
+        if(decimal1 == -1 || decimal2 == -1){
+            printf("invalid\n");
+        }
+        else {
+            long long sum = decimal1 + decimal2;
+            printf("The sum is: ");
+            toRoman(sum);
+            printf("\n");
+        }
     }
     else if(n == 2){
         char roman_num[1000], roman_num2[1000];
@@ -142,10 +145,15 @@ int main(){
         scanf("%s %s",roman_num, roman_num2);
         long long decimal1 = toDecimal(roman_num);
         long long decimal2 = toDecimal(roman_num2);
-        long long product = decimal1 * decimal2;
-        printf("The product is: ");
-        toRoman(product);
-        printf("\n");
+        if(decimal1 == -1 || decimal2 == -1){
+            printf("invalid");
+        }
+        else{
+            long long product = decimal1 * decimal2;
+            printf("The product is: ");
+            toRoman(product);
+            printf("\n");
+        }
     }
     return 0;
 }
