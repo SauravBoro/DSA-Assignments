@@ -22,7 +22,7 @@ long long product(long long b1, long long b2)
 
 int main(){
     int n;
-    printf("1) Addition\n2) Multiplication");
+    printf("1) Addition\n2) Multiplication\n");
     scanf("%d",&n);
     if(n == 1){
         long b1, b2;
