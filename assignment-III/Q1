@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <string.h>
+
+long long int uniqueHash(char *s){
+    const int p = 31;
+    const int m = 1e9 + 9;
+    long long value = 0;
+    long long power = 1;
+    for(int i=0; i<strlen(s); i++){
+        value = (value + (s[i] - 'A' + 1) * power) % m;
+        power = (power * p) % m;
+    }
+    return value;
+}
+
+int main()
+{
+    char s[1000];
+    printf("Enter a String:\n");
+    scanf("%[^\n]s", s);
+    printf("it unique Hash Value is: %lld", uniqueHash(s));
+    return 0;
+}
